@@ -52,5 +52,8 @@
       "description": "__MSG_exportSessionsDescription__"
     }
   },
-  "incognito": "spanning"
+  "incognito": "spanning",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'"
+  }
 }
