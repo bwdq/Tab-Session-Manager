@@ -3,3 +3,5 @@ dist
 dev
 temp
 src/credentials.js
+/src/wasm_png_compression/target/
+.idea

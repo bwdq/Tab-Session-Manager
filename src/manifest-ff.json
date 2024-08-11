@@ -55,5 +55,8 @@
     "exportSessions": {
       "description": "__MSG_exportSessionsDescription__"
     }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'"
   }
 }

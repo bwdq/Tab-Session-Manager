@@ -30,7 +30,8 @@ const generalConfig = {
     },
     fallback: {
       "url": require.resolve("url/")
-    }
+    },
+    extensions: [".js", ".jsx", ".wasm"]
   },
   module: {
     rules: [
@@ -39,7 +40,7 @@ const generalConfig = {
         exclude: /node_modules/,
         test: /\.(js|jsx)$/,
         resolve: {
-          extensions: [".js", ".jsx"]
+          extensions: [".js", ".jsx", ".wasm"]
         }
       },
       {
@@ -62,8 +63,15 @@ const generalConfig = {
       {
         test: /\.svg$/,
         use: ["@svgr/webpack"]
+      },
+      {
+        test: /\.wasm$/,
+        type: 'webassembly/async'
       }
     ]
+  },
+  experiments: {
+    asyncWebAssembly: true
   }
 };
 
