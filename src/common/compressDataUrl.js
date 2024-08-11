@@ -5,7 +5,8 @@ import { ImageUtil } from 'wasm_png_compression';
 export const compressDataUrl = async dataUrl => {
   try {
     const wasm_compressed = ImageUtil.compress_image(dataUrl);
-    const compressed_blob = new Blob([wasm_compressed], { type: 'image/png' });
+    const wasm_blob = new Blob([wasm_compressed], { type: 'image/png' });
+
     // const file = await imageCompression.getFilefromDataUrl(dataUrl, "");
     // const compressedFile = await imageCompression(file, {
     //   maxWidthOrHeight: 32,
@@ -16,7 +17,7 @@ export const compressDataUrl = async dataUrl => {
     const reader = new FileReader();
     return new Promise(resolve => {
       reader.onload = e => resolve(e.target.result);
-      reader.readAsDataURL(compressed_blob);
+      reader.readAsDataURL(wasm_blob);
     });
   }
   catch {
