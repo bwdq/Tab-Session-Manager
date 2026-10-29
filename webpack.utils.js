@@ -9,6 +9,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ZipPlugin = require("zip-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
+const WasmPackPlugin = require("@wasm-tool/wasm-pack-plugin");
 
 const getHTMLPlugins = (browserDir, outputDir = "dev", sourceDir = "src") => [
   new HtmlWebpackPlugin({
@@ -127,6 +128,14 @@ const getBufferPlugin = () => [
   }),
 ];
 
+const getWasmPackPlugin = () => [
+  new WasmPackPlugin({
+    crateDirectory: path.resolve(__dirname, "src/common/wasm_png_compression"),
+    // outDir: path.resolve(__dirname, `${outputDir}/${browserDir}/wasm`),
+    // extraArgs: "--no-typescript",
+  })
+];
+
 module.exports = {
   getHTMLPlugins,
   getOutput,
@@ -135,5 +144,6 @@ module.exports = {
   getMiniCssExtractPlugin,
   getBufferPlugin,
   getZipPlugin,
-  getEntry
+  getEntry,
+  getWasmPackPlugin
 };

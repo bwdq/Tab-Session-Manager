@@ -24,6 +24,7 @@
     "react-transition-group": "^4.3.0",
     "url": "^0.11.0",
     "uuid": "^11.1.0",
+    "wasm_png_compression": "file:./src/common/wasm_png_compression/pkg",
     "webextension-polyfill": "^0.7.0"
   },
   "devDependencies": {
@@ -35,6 +36,7 @@
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
     "@svgr/webpack": "^8.1.0",
+    "@wasm-tool/wasm-pack-plugin": "^1.7.0",
     "babel-loader": "^8.1.0",
     "buffer": "^6.0.3",
     "clean-webpack-plugin": "^0.1.19",
